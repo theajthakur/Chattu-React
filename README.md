@@ -1,12 +1,40 @@
-# React + Vite
+# CHATTU - React Chat Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CHATTU is a real-time chat application built with React and Vite. This project demonstrates the use of modern web development tools and practices, including React for the user interface, Vite for fast development and build processes, and Bootstrap for styling.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Real-time chat interface
+- Collapsible sidebar with a contact list
+- Responsive design with Bootstrap
+- Modern development setup with Vite
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (version 14 or higher)
+- [npm](https://www.npmjs.com/) (version 6 or higher)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/CHATTU.git
+   cd CHATTU
+   ```
+
+2. Install Dependecies
+
+   ```bash
+   npm install
+   ```
+
+3. Running the Application
+
+   ```bash
+   npm run dev
+   ```
