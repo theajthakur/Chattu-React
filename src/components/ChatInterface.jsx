@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle, faCoffee } from "@fortawesome/free-solid-svg-icons";
 import "./ChatInterface.css";
 
 function ChatInterface(userid) {
@@ -98,8 +100,21 @@ function ChatInterface(userid) {
 
   return (
     <div className="container chat-interface">
-      <h3 className="text-center mb-3 py-3 border-bottom header">
-        {user.name} {user.isOnline ? "⬤" : "🔴"}
+      <h3 className="text-center mb-3 py-3 border-bottom header position-relative">
+        {user.name}{" "}
+        <FontAwesomeIcon
+          icon={faCircle}
+          style={{
+            fontSize: "0.5rem",
+            position: "absolute",
+            top: "20px",
+            padding: "2px",
+            border: "2px solid",
+            borderRadius: "50%",
+            borderColor: user.isOnline ? "lime" : "red",
+          }}
+          color={user.isOnline ? "lime" : "red"}
+        />
       </h3>
       <div className="chat-box">
         {user.chat &&
@@ -128,6 +143,11 @@ function ChatInterface(userid) {
             type="text"
             className="form-control"
             placeholder="Type a message..."
+            onKeyUp={(e) => {
+              if (e.key === "Enter") {
+                sendMessage();
+              }
+            }}
           />
           <button className="btn btn-primary" onClick={sendMessage}>
             Send
