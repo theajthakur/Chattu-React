@@ -5,6 +5,10 @@ import "./ChatInterface.css";
 import NoChat from "./extra/noChat";
 
 function ChatInterface({ user }) {
+  const [selectedUser, setSelectedUser] = useState(null);
+  useEffect(() => {
+    setSelectedUser(user);
+  }, [user]);
   function scrollToBottom(className) {
     const element = document.querySelector(`.${className}`);
     if (element) {
@@ -22,7 +26,7 @@ function ChatInterface({ user }) {
     const input = document.querySelector(".chat-input input");
     const message = input.value.trim();
     if (message) {
-      const chat = user.chat;
+      const chat = selectedUser.chats;
       const time = new Date();
       chat.push({
         message,
@@ -31,8 +35,8 @@ function ChatInterface({ user }) {
         }`,
         type: "sent",
       });
-      setUser({ ...user, chat });
       input.value = "";
+      setSelectedUser({ ...selectedUser, chats: chat });
 
       scrollToBottom("chat-box");
     }
@@ -61,8 +65,9 @@ function ChatInterface({ user }) {
         />
       </h3>
       <div className="chat-box">
-        {user.chats &&
-          user.chats.map((msg, index) => (
+        {selectedUser &&
+          selectedUser.chats &&
+          selectedUser.chats.map((msg, index) => (
             <div
               className={`chat-parent ${
                 msg.type === "sent" ? "sent" : "received"
